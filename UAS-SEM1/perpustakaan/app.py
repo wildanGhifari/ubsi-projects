@@ -131,9 +131,7 @@ def tambah_buku():
                             
                             f.write(title + ", " + page + ", " + author + ", " + stock + "\n")
                             print("\n")
-                            print("====================================================")
                             print("Terima kasih, buku %s berhasil ditambahkan!" % title)
-                            print("====================================================")
                             print("\n")
 
                             question = input('Tekan "Y" untuk menambahkan buku lagi... ')
@@ -153,7 +151,9 @@ def tambah_buku():
             else:
                 print("Gagal, Judul buku tidak boleh kosong!")
                 break
-            # End of tambah_buku()
+    
+    tampilkan_buku()
+    # End of tambah_buku()
 
 # Start of pinjam_buku()
 def pinjam_buku():
