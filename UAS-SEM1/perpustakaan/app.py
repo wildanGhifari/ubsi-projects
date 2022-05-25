@@ -8,6 +8,9 @@ import os
 
 # Start of Variable Declaration
 daftar_buku = []
+data_pinjam = []
+
+today = datetime.today()
 # End of Variable Declaration
 
 # Start of utility functions
@@ -74,6 +77,7 @@ def welcome():
 def tampilkan_buku():
     print("\n")
     print("Daftar buku di perpustakaan Kelompok 1")
+    daftar_buku.clear()
 
     # Membuat table untuk keperluan menggunakan "tabulate",
     # data dibawah ini dijadikan sebagai header.
@@ -153,7 +157,68 @@ def tambah_buku():
 
 # Start of pinjam_buku()
 def pinjam_buku():
-    print("Pinjam buku!")
+    # Panggil function display_buku terlebih dahulu
+    # untuk menampilkan daftar buku yang tersedia
+    tampilkan_buku()
+
+    # Membuat table untuk keperluan menggunakan "tabulate",
+    # data dibawah ini dijadikan sebagai header.
+    table_pinjam = [
+        ["ID", "Judul Buku", "Nama Mahasiswa", "Email", "Tgl. Dipinjam", "Status"]
+    ]
+
+    print("\n")
+    print("Isi data peminjam buku")
+    name = input("Masukkan nama: ")
+    email = input("Masukkan email: ")
+    id_pilihan = int(input("Masukkan ID Buku yang ingin dipinjam: "))
+
+    # Looping untuk mendapatkan data buku
+    for buku in daftar_buku: 
+
+        # Pastikan buku yang dipilih ada didalam daftar
+        # dan stoknya tersedia
+        if int(buku.id) == id_pilihan: 
+            if int(buku.stock) != 0: 
+
+                # Masukkan data peminjam
+                data_pinjam.append(Student(str(buku.id), buku.title, name, email, today.strftime("%d/%m/%Y"), "Belum dikembalikan"))
+
+                update_stock = []
+
+                # Buka file Data-buku untuk update stok buku yang dipinjam
+                with open("UAS-SEM1/perpustakaan/Data-buku.txt", "r+") as f:
+                    books = f.readlines()
+                    books = [x.strip("\n") for x in books]
+
+                    for i in range(len(books)):
+                        title = books[i].split(", ")[0]
+                        page = books[i].split(", ")[1]
+                        author = books[i].split(", ")[2]
+                        stock = books[i].split(", ")[3]
+
+                        if title == buku.title:
+                            stock = int(stock) - 1
+
+                        update_stock.append(title + ", " + page + ", " + author + ", " + str(stock))
+                
+                with open("UAS-SEM1/perpustakaan/Data-buku.txt", "w+") as f:
+                    for stock in update_stock:
+                        f.write(stock + "\n")
+                
+                for i in data_pinjam:
+                    table_pinjam.append([str(i.book_id), i.book_title, i.name, i.email, i.date, i.status])
+
+                    with open("UAS-SEM1/perpustakaan/Data-pinjaman.txt", "a+") as f:
+                        f.write(str(i.book_id) + ", " + i.book_title + ", " + i.name + ", " + i.email + ", " + i.date + ", " + i.status + "\n")
+
+                print("\n")
+                print("Buku berhasil dipinjam. Selamat membaca!")
+                print(tabulate(table_pinjam, headers="firstrow", tablefmt="psql"))
+                data_pinjam.clear()
+            else:
+                buku.is_empty()
+        # End of pinjam_buku()
 
 # Start of kembalikan_buku()
 def kembalikan_buku():
