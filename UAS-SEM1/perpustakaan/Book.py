@@ -1,9 +1,9 @@
 class Book():
-    def __init__(self, id, title, page, author, stock) -> None:
+    def __init__(self, id, title, author, page, stock) -> None:
         self.id = id
         self.title = title
-        self.page = page
         self.author = author
+        self.page = page
         self.stock = stock
 
     def is_empty(self):

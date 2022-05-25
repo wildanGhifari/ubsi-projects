@@ -6,6 +6,10 @@ from datetime import datetime, timedelta
 import os
 # End of Import Modules
 
+# Start of Variable Declaration
+daftar_buku = []
+# End of Variable Declaration
+
 # Start of utility functions
 # Function utility ini berguna untuk membersihkan terminal 
 # ketika function kembali() dipanggil dimana didalam function
@@ -68,7 +72,42 @@ def welcome():
 
 # Start of tampilkan_buku()
 def tampilkan_buku():
-    print("Function ini akan menampilkan daftart buku.")
+    print("\n")
+    print("Daftar buku di perpustakaan Kelompok 1")
+
+    # Membuat table untuk keperluan menggunakan "tabulate",
+    # data dibawah ini dijadikan sebagai header.
+    table_buku = [
+        ["ID", "Judul Buku", "Pengarang", "Jmlh. Halaman", "Stok buku"]
+    ]
+
+    with open("UAS-SEM1/perpustakaan/Data-buku.txt", "r+") as f:
+        books = f.readlines()
+        books = [x.strip('\n') for x in books]
+
+        for i in range(len(books)):
+            index  = 0
+            
+            for j in books[i].split(", "):
+                if index == 0:
+                    judul = j
+                elif index == 1:
+                    halaman = j
+                elif index == 2:
+                    pengarang = j
+                elif index == 3:
+                    stok = j
+
+                index += 1
+            
+            # Menyiapkan data buku sesuai class/objek Buku yang sudah ditentukan
+            daftar_buku.append(Book(i, judul, pengarang, halaman, stok))
+
+        for buku in daftar_buku:
+            table_buku.append([buku.id, buku.title, buku.author, buku.page, buku.stock])
+
+        print(tabulate(table_buku, headers="firstrow", tablefmt="psql"))
+        # End of tampilkan_buku()
 
 # Start of tambah_buku()
 def tambah_buku():
@@ -110,6 +149,7 @@ def tambah_buku():
             else:
                 print("Gagal, Judul buku tidak boleh kosong!")
                 break
+            # End of tambah_buku()
 
 # Start of pinjam_buku()
 def pinjam_buku():
