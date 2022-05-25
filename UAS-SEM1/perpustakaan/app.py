@@ -51,10 +51,12 @@ def welcome():
             elif menu == 5:
                 print("\n")
                 print("Terima kasih telah menggunakan sistem perpustakaan kami!")
+                print("\n")
                 break
             else:
                 print("\n")
                 print("Oops! Menu tidak ditemukan, silahkan pilih menu lagi...")
+                print("\n")
                 kembali()
                 continue
         except ValueError:
@@ -70,7 +72,44 @@ def tampilkan_buku():
 
 # Start of tambah_buku()
 def tambah_buku():
-    print("Function ini akan menambahkan buku ke daftar buku.")
+    with open("UAS-SEM1/perpustakaan/Data-buku.txt", "a+") as f:
+        while True:
+            print("\n")
+            print("Isi data buku yang ingin ditambahkan.")
+
+            title = input("Judul buku: ")
+            if title != "":
+                page = input("Halaman buku: ")
+                if page != "":
+                    author = input("Pengarang: ")
+                    if author != "":
+                        stock = input("Jumlah stock: ")
+                        if stock != "":
+                            
+                            f.write(title + ", " + page + ", " + author + ", " + stock + "\n")
+                            print("\n")
+                            print("====================================================")
+                            print("Terima kasih, buku %s berhasil ditambahkan!" % title)
+                            print("====================================================")
+                            print("\n")
+
+                            question = input('Tekan "Y" untuk menambahkan buku lagi... ')
+                            if question.lower() == "y":
+                                clear_screen()
+                                continue
+                            else:
+                                break
+                        else:
+                            print("Gagal, Stock tidak boleh kosong!")
+                    else:
+                        print("Gagal, Pengarang tidak boleh kosong!")
+                        break
+                else:
+                    print("Gagal, Halaman buku tidak boleh kosong!")
+                    break
+            else:
+                print("Gagal, Judul buku tidak boleh kosong!")
+                break
 
 # Start of pinjam_buku()
 def pinjam_buku():
