@@ -220,6 +220,17 @@ def pinjam_buku():
                 buku.is_empty()
         # End of pinjam_buku()
 
+
+def cek_keterlambatan(tgl_pinjam, tgl_skrg):
+    d = int(tgl_pinjam.split("/")[0])
+    m = int(tgl_pinjam.split("/")[1])
+    y = int(tgl_pinjam.split("/")[2])
+    fromDate = int(datetime(y, m, d, 0, 0, 0).timestamp())
+
+    res = int((tgl_skrg.timestamp() - fromDate) / 3600 / 24)
+    return res
+
+
 # Start of kembalikan_buku()
 def kembalikan_buku():
     # Membuat table untuk keperluan menggunakan "tabulate",
@@ -267,6 +278,22 @@ def kembalikan_buku():
             data = line.split(", ")
 
             if data[1] == buku_dipinjam:
+
+                # Cek apakah buku tsb. telat dikembalikan
+                # batanya adalah 3 hari dari tgl pinjam
+                if cek_keterlambatan(data[4], today) > 3:
+                    denda = 3000
+                    jmlh_hari = cek_keterlambatan(data[4], today)
+                    total_denda = denda * jmlh_hari
+
+                    print("\n")
+                    print("=======================================================")
+                    print("DENDA KETERLAMBATAN                                  ")
+                    print("-------------------------------------------------------")
+                    print("Telat %i hari. Anda wajib bayar denda Rp. %i,-" % (jmlh_hari, total_denda))
+                    print("=======================================================")
+                    print("\n")
+
                 if data[1] == buku_dipinjam and data[2] == name:
                     with open("UAS-SEM1/perpustakaan/history-pinjam/" + "-".join(name.split(" ")) + ".txt", "a+") as f:
                         f.write(", ".join(data) + "\n")
