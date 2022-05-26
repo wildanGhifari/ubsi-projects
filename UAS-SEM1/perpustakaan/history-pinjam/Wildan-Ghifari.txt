@@ -1,3 +1,4 @@
 0, One Piece, Wildan Ghifari, wildghifari@gmail.com, 27/05/2022
 1, Naruto Shippuden, Wildan Ghifari, wildghifari@gmail.com, 27/05/2022
 4, Dr. Stone, Wildan Ghifari, wildghifari@gmail.com, 27/05/2022
+9, Attack on Titan Season 3, Wildan Ghifari, wildghifari@gmail.com, 27/05/2022
