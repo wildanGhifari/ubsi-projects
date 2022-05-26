@@ -1,8 +1,8 @@
-One Piece, 1050, Eichiro Oda, 19
+One Piece, 1050, Eichiro Oda, 20
 Naruto Shippuden, 500, Masashi Kishimoto, 10
 Harry Potter: The Chamber of Secret, 502, J.K. Rowling, 50
 Fifty Shades of Grey, 514, E.L. James, 10
-Dr. Stone, 24, Riichiro Inagaki, 19
+Dr. Stone, 24, Riichiro Inagaki, 20
 The Design of Everyday Things, 369, Don Norman, 25
 Harry Potter and the Sorcerer's Stone, 223, J.K. Rowling, 15
 Attack on Titan Season 1, 25, Hajime Isayama, 10
