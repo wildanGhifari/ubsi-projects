@@ -239,99 +239,119 @@ def kembalikan_buku():
         ["ID", "Judul Buku", "Nama Mahasiswa", "Email", "Tgl. Dipinjam"]
     ]
 
+    list_pinjaman = []
     update_peminjam = []
-    update_stok = []
     buku_dipinjam = ""
-    oke = True
+    update_stok = []
+    status = False
 
     # Membuka file Data-pinjaman untuk melihat daftar pinjaman buku
     with open("UAS-SEM1/perpustakaan/Data-pinjaman.txt", "r+") as f:
         lines = f.readlines()
         lines = [x.strip("\n") for x in lines]
 
-        if len(lines) > 0:
+        if len(lines) != 0:
             print("\n")
-            name = input("Masukkan nama peminjam: ")
+            name = input("Masukkan nama peminjam buku: ")
 
             for line in lines:
-                data = line.split(", ")
+                line = line.split(", ")
 
-                # Mencari Data-pinjaman berdasarkan nama yang diinputkan
-                if data[2] == name:
-                    table_pinjam.append(data)
-                else:
-                    print("%s tidak ada dalam daftar peminjam buku" % name)
-                    oke = False  
-        else:
-            print("Tidak ada buku yang dipinjam.")
-            oke = False
+                # Mencari Data-pinjaman berdasarkan nama yang diinpput
+                if line[2] == name:
+                    list_pinjaman.append(", ".join(line))
+                    table_pinjam.append(line)
 
-    if len(table_pinjam) > 1:
-        print("\n")
-        print("Berikut ini adalah buku yang dipinjam oleh %s" % name)
-        print(tabulate(table_pinjam, headers="firstrow", tablefmt="psql"))
+            if len(table_pinjam) > 1:
+                print("\n")
+                print("Berikut ini adalah buku yang dipinjam oleh %s" % name)
+                print(tabulate(table_pinjam, headers="firstrow", tablefmt="psql"))
 
-        print("\n")
-        buku_dipinjam = input("Masukkan Judul Buku yang ingin dikembalikan: ")
+                print("\n")
+                buku_dipinjam = input("Masukkan Judul buku yang ingin dikembalikan: ")
 
-        for line in lines:
-            data = line.split(", ")
+                for list in list_pinjaman:
+                    list = list.split(", ")
 
-            if data[1] == buku_dipinjam:
+                    if list[1] == buku_dipinjam:
+                        # Cek apakah buku tsb. telat dikembalikan
+                        # batanya adalah 3 hari dari tgl pinjam
+                        if cek_keterlambatan(list[4], today) > 3:
+                            denda = 3000
+                            jmlh_hari = cek_keterlambatan(list[4], today)
+                            total_denda = denda * jmlh_hari
 
-                # Cek apakah buku tsb. telat dikembalikan
-                # batanya adalah 3 hari dari tgl pinjam
-                if cek_keterlambatan(data[4], today) > 3:
-                    denda = 3000
-                    jmlh_hari = cek_keterlambatan(data[4], today)
-                    total_denda = denda * jmlh_hari
+                            print("\n")
+                            print("=======================================================")
+                            print("DENDA KETERLAMBATAN                                  ")
+                            print("-------------------------------------------------------")
+                            print("Telat %i hari. Anda wajib bayar denda Rp. %i,-" % (jmlh_hari, total_denda))
+                            print("=======================================================")
+                            print("\n")
+                        
+                        for line in lines:
+                            line = line.split(", ")
 
-                    print("\n")
-                    print("=======================================================")
-                    print("DENDA KETERLAMBATAN                                  ")
-                    print("-------------------------------------------------------")
-                    print("Telat %i hari. Anda wajib bayar denda Rp. %i,-" % (jmlh_hari, total_denda))
-                    print("=======================================================")
-                    print("\n")
+                            if len(lines) != 1:
+                                if line[1] != list[1] and line[2] != list[2]:
+                                    update_peminjam.append(line)
 
-                if data[1] == buku_dipinjam and data[2] == name:
-                    with open("UAS-SEM1/perpustakaan/history-pinjam/" + "-".join(name.split(" ")) + ".txt", "a+") as f:
-                        f.write(", ".join(data) + "\n")
-                else:
-                    update_peminjam.append(data)
+                                    status = True
+                                    # Buka file Data-pinjaman untuk update status
+                                    with open("UAS-SEM1/perpustakaan/Data-pinjaman.txt", "w+") as f:
+                                        for i in range(len(update_peminjam)):
+                                            f.write(", ".join(update_peminjam[i]) + "\n")
+                                    
+                                else:
+                                    with open("UAS-SEM1/perpustakaan/history-pinjam/" + "-".join(name.split(" ")) + ".txt", "a+") as f:
+                                        f.write(", ".join(line) + "\n")
+                            else:
+                                status = True
+                                with open("UAS-SEM1/perpustakaan/Data-pinjaman.txt", "w+") as f:
+                                    f.write("")
+                                with open("UAS-SEM1/perpustakaan/history-pinjam/" + "-".join(name.split(" ")) + ".txt", "a+") as f:
+                                    f.write(", ".join(line) + "\n")
+                                
+                    else:
+                        print("%s tidak ada dalam daftar pinjam %s" % (buku_dipinjam, name))
+                        kembali()
+                        kembalikan_buku()
             else:
-                print("Buku tidak ada dalam daftar pinjam %s" % name)
-                oke = False
+                print("%s tidak ada dalam daftar pinjam" % name)
+                kembali()
+                kembalikan_buku()
+        else:
+            print("Tidak ada data pinjaman")
+
+        if status == True:
+            # Buka file Data-pinjaman untuk update status
+            with open("UAS-SEM1/perpustakaan/Data-pinjaman.txt", "w+") as f:
+                for i in range(len(update_peminjam)):
+                    f.write(", ".join(update_peminjam[i]) + "\n")
+
+            # Buka file Data-buku untuk update stok
+            with open("UAS-SEM1/perpustakaan/Data-buku.txt", "r+") as f:
+                lines = f.readlines()
+                lines = [x.strip('\n') for x in lines]
+
+                for i in range(len(lines)):
+                    judul_buku = lines[i].split(", ")[0]
+                    jumlah_halaman = lines[i].split(", ")[1]
+                    pengarang = lines[i].split(", ")[2]
+                    jumlah_stok = lines[i].split(", ")[3]
+
+                    if judul_buku == buku_dipinjam:
+                        jumlah_stok = int(jumlah_stok) + 1
+
+                    update_stok.append(judul_buku + ", " + jumlah_halaman + ", " + pengarang + ", " + str(jumlah_stok))
+
+            # Update file Data-buku
+            with open("UAS-SEM1/perpustakaan/Data-buku.txt", "w+") as f:
+                for i in update_stok:
+                    f.write(i + "\n")
+
+                print("Buku berhasil dikembalikan, Terima kasih!")
     
-    if oke == True:
-        # Buka file Data-pinjaman untuk update status
-        with open("UAS-SEM1/perpustakaan/Data-pinjaman.txt", "w+") as f:
-            for i in range(len(update_peminjam)):
-                f.write(", ".join(update_peminjam[i]) + "\n")
-
-        # Buka file Data-buku untuk update stok
-        with open("UAS-SEM1/perpustakaan/Data-buku.txt", "r+") as f:
-            lines = f.readlines()
-            lines = [x.strip('\n') for x in lines]
-
-            for i in range(len(lines)):
-                judul_buku = lines[i].split(", ")[0]
-                jumlah_halaman = lines[i].split(", ")[1]
-                pengarang = lines[i].split(", ")[2]
-                jumlah_stok = lines[i].split(", ")[3]
-
-                if judul_buku == buku_dipinjam:
-                    jumlah_stok = int(jumlah_stok) + 1
-
-                update_stok.append(judul_buku + ", " + jumlah_halaman + ", " + pengarang + ", " + str(jumlah_stok))
-
-        # Update file Data-buku
-        with open("UAS-SEM1/perpustakaan/Data-buku.txt", "w+") as f:
-            for i in update_stok:
-                f.write(i + "\n")
-
-            print("Buku berhasil dikembalikan, Terima kasih!")
-
 # Panggil function welcome()
 # Disinalah titik awal aplikasi berjalan
 welcome()
