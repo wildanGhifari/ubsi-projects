@@ -1,4 +1,5 @@
 # Start of Import Modules
+from ast import Try
 from Product import Product
 from tabulate import tabulate
 from datetime import datetime
@@ -69,7 +70,104 @@ def main_transaction():
     print("Main transaction")
 
 def display_product():
-    print("Display product")
+    clear_screen()
+    table_product = []
+    
+    with open("UAS-SEM1/kasir/Data-product.txt", "r+") as file_produk:
+        products = file_produk.readlines()
+        products = [x.strip("\n") for x in products]
+
+        while True:
+            print("\n")
+            print("+========================================+")
+            print("| Menu Tamplikan Daftar Produk           |")
+            print("+----------------------------------------+")
+            print("| 1 - Semua Produk                       |")
+            print("| 2 - Pilih kategori                     |")
+            print("| 3 - Keluar                             |")
+            print("+========================================+")
+            print("\n")
+
+            try:
+                q1 = int(input("Silahkan pilih menu 1 - 3: "))
+
+                if q1 == 1:
+                    for product in products:
+                        p_id = product.split(", ")[0]
+                        p_name = product.split(", ")[1]
+                        p_desc = product.split(", ")[2]
+                        p_category = product.split(", ")[3]
+                        p_price = product.split(", ")[4]
+                        p_stock = product.split(", ")[5]
+
+                        table_product.clear()
+                        table_product.append(["ID", "Nama Produk", "Deskripsi", "Kategori", "Harga", "Jmlh. Stok"])
+                        table_product.append([p_id, p_name, p_desc, p_category, p_price, p_stock])
+
+                        clear_screen()
+                        print(tabulate(table_product, headers="firstrow", tablefmt="psql"))
+                    break
+
+                elif q1 == 2:
+                    category = input("Masukkan kategori produk [SP, SW, TB, LP, PC]: ")
+                    if str(category).upper() == "SP":
+                        category = "Smartphone"
+                    elif str(category).upper() == "SW":
+                        category = "Smartwatch"
+                    elif str(category).upper() == "TB":
+                        category = "Tablet"
+                    elif str(category).upper() == "LP":
+                        category = "Laptop"
+                    elif str(category).upper() == "PC":
+                        category = "Personal Computer"
+                    else:
+                        print("Gagal, kategori salah/tidak ditemukan")
+
+                    for product in products:
+                        p_id = product.split(", ")[0]
+                        p_name = product.split(", ")[1]
+                        p_desc = product.split(", ")[2]
+                        p_category = product.split(", ")[3]
+                        p_price = product.split(", ")[4]
+                        p_stock = product.split(", ")[5]
+
+                        if p_category == category:
+                            table_product.clear()
+                            table_product.append(["ID", "Nama Produk", "Deskripsi", "Kategori", "Harga", "Jmlh. Stok"])
+                            table_product.append([p_id, p_name, p_desc, p_category, p_price, p_stock])
+                            
+                            clear_screen()
+                            print(tabulate(table_product, headers="firstrow", tablefmt="psql"))
+                            break
+
+                        else:
+                            print("Tidak ada produk untuk kategori %s " % category)
+                            back()
+                            continue
+
+
+                # while True:
+                #     print("\n")
+                #     print("+========================================+")
+                #     print("| Tamplikan Semua Produk                 |")
+                #     print("+----------------------------------------+")
+                #     print("| 1 - Kembali                            |")
+                #     print("| 2 - Keluar                             |")
+                #     print("+========================================+")
+                #     print("\n")
+
+                #     try:
+                #         menu = int(input("Silahkan pilih menu 1 - 2: "))
+
+                #     except ValueError:
+                #         print("Oops! Terjadi kesalahan.")
+                #         back()
+                #         continue
+
+            except ValueError:
+                print("Oops! Terjadi kesalahan.")
+                back()
+                continue
 
 def add_product():
     
@@ -132,7 +230,7 @@ def add_product():
                                         file_produk.write(str(int(p.id) + 1) + ", " + p.name + ", " + p.desc + ", " + p.category + ", " + p.price + ", " + p.stock + "\n")
 
                                         print("%s berhasil ditambahkan!" % p.name)
-                                        display_product()
+                                        # display_product()
                                     break
                             else:
                                 print("Gagal, Stok produk tidak boleh kosong!")
