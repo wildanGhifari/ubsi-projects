@@ -92,6 +92,9 @@ def display_product():
                 q1 = int(input("Silahkan pilih menu 1 - 3: "))
 
                 if q1 == 1:
+                    table_product.clear()
+                    table_product.append(["ID", "Nama Produk", "Deskripsi", "Kategori", "Harga", "Stok"])
+
                     for product in products:
                         p_id = product.split(", ")[0]
                         p_name = product.split(", ")[1]
@@ -100,15 +103,16 @@ def display_product():
                         p_price = product.split(", ")[4]
                         p_stock = product.split(", ")[5]
 
-                        table_product.clear()
-                        table_product.append(["ID", "Nama Produk", "Deskripsi", "Kategori", "Harga", "Jmlh. Stok"])
                         table_product.append([p_id, p_name, p_desc, p_category, p_price, p_stock])
 
                         clear_screen()
+                        print("\n")
                         print(tabulate(table_product, headers="firstrow", tablefmt="psql"))
                     break
-
                 elif q1 == 2:
+                    table_product.clear()
+                    table_product.append(["ID", "Nama Produk", "Deskripsi", "Kategori", "Harga", "Stok"])
+
                     category = input("Masukkan kategori produk [SP, SW, TB, LP, PC]: ")
                     if str(category).upper() == "SP":
                         category = "Smartphone"
@@ -121,7 +125,9 @@ def display_product():
                     elif str(category).upper() == "PC":
                         category = "Personal Computer"
                     else:
+                        print("\n")
                         print("Gagal, kategori salah/tidak ditemukan")
+                        print("Masukkan kode kategori dengan benar!")
 
                     for product in products:
                         p_id = product.split(", ")[0]
@@ -132,38 +138,21 @@ def display_product():
                         p_stock = product.split(", ")[5]
 
                         if p_category == category:
-                            table_product.clear()
-                            table_product.append(["ID", "Nama Produk", "Deskripsi", "Kategori", "Harga", "Jmlh. Stok"])
                             table_product.append([p_id, p_name, p_desc, p_category, p_price, p_stock])
-                            
+
+                        if len(table_product) > 1:    
                             clear_screen()
+                            print("\n")
                             print(tabulate(table_product, headers="firstrow", tablefmt="psql"))
-                            break
-
-                        else:
-                            print("Tidak ada produk untuk kategori %s " % category)
-                            back()
-                            continue
-
-
-                # while True:
-                #     print("\n")
-                #     print("+========================================+")
-                #     print("| Tamplikan Semua Produk                 |")
-                #     print("+----------------------------------------+")
-                #     print("| 1 - Kembali                            |")
-                #     print("| 2 - Keluar                             |")
-                #     print("+========================================+")
-                #     print("\n")
-
-                #     try:
-                #         menu = int(input("Silahkan pilih menu 1 - 2: "))
-
-                #     except ValueError:
-                #         print("Oops! Terjadi kesalahan.")
-                #         back()
-                #         continue
-
+                    break
+                elif q1 == 3:
+                    break
+                else:
+                    print("\n")
+                    print("Oops! Menu tidak ditemukan, silahkan pilih menu lagi...")
+                    print("\n")
+                    back()
+                    continue
             except ValueError:
                 print("Oops! Terjadi kesalahan.")
                 back()
