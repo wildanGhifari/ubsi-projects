@@ -125,12 +125,13 @@ def display_product():
                     table_product.append(["ID", "Nama Produk", "Deskripsi", "Kategori", "Harga", "Stok"])
 
                     for product in products:
-                        p_id = product.split(", ")[0]
-                        p_name = product.split(", ")[1]
-                        p_desc = product.split(", ")[2]
-                        p_category = product.split(", ")[3]
-                        p_price = product.split(", ")[4]
-                        p_stock = product.split(", ")[5]
+                        if int(product.split(", ")[5]) != 0:
+                            p_id = product.split(", ")[0]
+                            p_name = product.split(", ")[1]
+                            p_desc = product.split(", ")[2]
+                            p_category = product.split(", ")[3]
+                            p_price = product.split(", ")[4]
+                            p_stock = product.split(", ")[5]
 
                         table_product.append([p_id, p_name, p_desc, p_category, p_price, p_stock])
 
@@ -159,12 +160,13 @@ def display_product():
                         print("Masukkan kode kategori dengan benar!")
 
                     for product in products:
-                        p_id = product.split(", ")[0]
-                        p_name = product.split(", ")[1]
-                        p_desc = product.split(", ")[2]
-                        p_category = product.split(", ")[3]
-                        p_price = product.split(", ")[4]
-                        p_stock = product.split(", ")[5]
+                        if int(product.split(", ")[5]) != 0:
+                            p_id = product.split(", ")[0]
+                            p_name = product.split(", ")[1]
+                            p_desc = product.split(", ")[2]
+                            p_category = product.split(", ")[3]
+                            p_price = product.split(", ")[4]
+                            p_stock = product.split(", ")[5]
 
                         if p_category == category:
                             table_product.append([p_id, p_name, p_desc, p_category, p_price, p_stock])
