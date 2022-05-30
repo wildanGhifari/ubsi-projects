@@ -47,7 +47,7 @@ def welcome():
                 add_product()
                 back()
             elif menu == 4:
-                update_product()
+                edit_product()
                 back()
             elif menu == 5:
                 print("\n")
@@ -68,6 +68,9 @@ def welcome():
 
 def main_transaction():
     clear_screen()
+
+    update_produk = []
+    invoice = []
     produk_pilihan = []
 
     with open("UAS-SEM1/kasir/Data-product.txt", "r+") as file_produk:
@@ -84,13 +87,27 @@ def main_transaction():
 
                 for i in range(q1):
                     id_produk_pilihan = input("Silahkan pilih ID produk ke - %i: " % int(i + 1))
-                    qty = input("")
-                    produk_pilihan.append(id_produk_pilihan)
+                    qty = input("Masukkan quantity barang: ")
+                    produk_pilihan.append([id_produk_pilihan, qty])
                 
                 for i in produk_pilihan:
                     for j in products:
-                        if i == j.split(", ")[0]:
-                            print(j)
+                        p_id = j.split(", ")[0]
+                        p_name = j.split(", ")[1]
+                        p_desc = j.split(", ")[2]
+                        p_category = j.split(", ")[3]
+                        p_price = j.split(", ")[4]
+                        p_stock = j.split(", ")[5]
+
+                        if i[0] == j.split(", ")[0]:
+                            p_stock = str(int(j.split(", ")[5]) - int(i[1]))
+
+                        update_produk.append(p_id + ", " + p_name + ", " + p_desc + ", " + p_category + ", " + p_price + ", " + p_stock)
+                
+                with open("UAS-SEM1/kasir/Data-product.txt", "w+") as file_produk:
+                    for updated_produk in update_produk:
+                        file_produk.write(updated_produk + "\n")
+                        
                 break
             except ValueError:
                 print("Gagal, masukkan jumlah(angka) barang yang ingin Anda check out")
@@ -274,7 +291,7 @@ def add_product():
                 continue
 
 
-def update_product():
+def edit_product():
     print("Update product")
 
 

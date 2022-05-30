@@ -1,2 +1,2 @@
-418, Huawei Matebook 14s, Core i5 11300H Ram 8GB 512GB Iris(r) Xe Graphics, Laptop, 17000000, 10
+418, Huawei Matebook 14s, Core i5 11300H Ram 8GB 512GB Iris(r) Xe Graphics, Laptop, 17000000, 8
 194, Xiaomi Redmi Note 8, Ram 3GB 16GB, Smartphone, 2500000, 5
