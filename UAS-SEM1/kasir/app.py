@@ -67,7 +67,36 @@ def welcome():
             # End of welcome() function
 
 def main_transaction():
-    print("Main transaction")
+    clear_screen()
+    produk_pilihan = []
+
+    with open("UAS-SEM1/kasir/Data-product.txt", "r+") as file_produk:
+        products = file_produk.readlines()
+        products = [x.strip("\n") for x in products]
+
+        while True:
+            display_product()
+            print("\n")
+
+            try:
+                q1 = int(input("Berapa banyak barang yang ingin di check out: "))
+                print("\n")
+
+                for i in range(q1):
+                    id_produk_pilihan = input("Silahkan pilih ID produk ke - %i: " % int(i + 1))
+                    qty = input("")
+                    produk_pilihan.append(id_produk_pilihan)
+                
+                for i in produk_pilihan:
+                    for j in products:
+                        if i == j.split(", ")[0]:
+                            print(j)
+                break
+            except ValueError:
+                print("Gagal, masukkan jumlah(angka) barang yang ingin Anda check out")
+                back()
+                continue
+
 
 def display_product():
     clear_screen()
