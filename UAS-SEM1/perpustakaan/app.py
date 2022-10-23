@@ -44,18 +44,23 @@ def welcome():
             menu = int(input("Silahkan pilih menu 1 - 5: "))
             
             if menu == 1:
+                # Jalanin function tampilkan_buku()
                 tampilkan_buku()
                 kembali()
             elif menu == 2:
+                # Jalanin function tambah_buku()
                 tambah_buku()
                 kembali()
             elif menu == 3:
+                # Jalanin function pinjam_buku()
                 pinjam_buku()
                 kembali()
             elif menu == 4:
+                # Jalanin function kembalikan_buku()
                 kembalikan_buku()
                 kembali()
             elif menu == 5:
+                # Keluar dari program
                 print("\n")
                 print("Terima kasih telah menggunakan sistem perpustakaan kami!")
                 print("\n")

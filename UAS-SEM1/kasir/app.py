@@ -1,5 +1,4 @@
 # Start of Import Modules
-from ast import Try
 from Product import Product
 from tabulate import tabulate
 from datetime import datetime
@@ -98,40 +97,39 @@ def main_transaction():
 
                     produk_pilihan.append([id_produk_pilihan, qty])
                 
-                for i in produk_pilihan:
-                    for j in products:
-                        p_id = j.split(", ")[0]
-                        p_name = j.split(", ")[1]
-                        p_desc = j.split(", ")[2]
-                        p_category = j.split(", ")[3]
-                        p_price = j.split(", ")[4]
-                        p_stock = j.split(", ")[5]
+                for i in products:
+                    for j in produk_pilihan:
+                        p_id = i.split(", ")[0]
+                        p_name = i.split(", ")[1]
+                        p_desc = i.split(", ")[2]
+                        p_category = i.split(", ")[3]
+                        p_price = i.split(", ")[4]
+                        p_stock = i.split(", ")[5]
 
-                        if i[0] == j.split(", ")[0]:
-                            p_stock = str(int(j.split(", ")[5]) - int(i[1]))
-                            invoice.append((p_name + " (%sx)" % i[1]) + ", " + str(int(p_price) * int(i[1])))
+                        if j[0] == i.split(", ")[0]:
+                            p_stock = str(int(i.split(", ")[5]) - int(j[1]))
+                            invoice.append((p_name + " (%sx)" % j[1]) + ", " + str(int(p_price) * int(j[1])))
+                            update_produk.append(p_id + ", " + p_name + ", " + p_desc + ", " + p_category + ", " + p_price + ", " + p_stock)
 
-                        update_produk.append(p_id + ", " + p_name + ", " + p_desc + ", " + p_category + ", " + p_price + ", " + p_stock)
-                
-                with open("UAS-SEM1/kasir/Data-product.txt", "w") as file_produk:
-                    for updated_produk in update_produk:
-                        file_produk.write(updated_produk + "\n")
+                # with open("UAS-SEM1/kasir/Data-product.txt", "w") as file_produk:
+                #     for updated_produk in update_produk:
+                #         file_produk.write(updated_produk + "\n")
 
-                with open("UAS-SEM1/kasir/invoice/"  + "-".join(name.split(" ")) + today.strftime("%d%m%Y") + ".txt", "w+") as file_pembeli:
-                    print(file_pembeli.write("===========================================\n"))
-                    print(file_pembeli.write("INVOICE\t\t\t\t\t\t\t %s\n" % today.strftime("%d/%m/%Y")))
-                    print(file_pembeli.write("-------------------------------------------\n"))
-                    print(file_pembeli.write(name + "\n"))
-                    print(file_pembeli.write(email + "\n\n"))
-                    total = 0
+                # with open("UAS-SEM1/kasir/invoice/"  + "-".join(name.split(" ")) + today.strftime("%d%m%Y") + ".txt", "w+") as file_pembeli:
+                #     print(file_pembeli.write("===========================================\n"))
+                #     print(file_pembeli.write("INVOICE\t\t\t\t\t\t\t %s\n" % today.strftime("%d/%m/%Y")))
+                #     print(file_pembeli.write("-------------------------------------------\n"))
+                #     print(file_pembeli.write(name + "\n"))
+                #     print(file_pembeli.write(email + "\n\n"))
+                #     total = 0
 
-                    for inv in invoice:
-                        total += int(inv.split(", ")[1])
-                        print(file_pembeli.write(inv.split(", ")[0] + "\t" + "Rp. %s" % inv.split(", ")[1] + "\n"))
+                #     for inv in invoice:
+                #         total += int(inv.split(", ")[1])
+                #         print(file_pembeli.write(inv.split(", ")[0] + "\t" + "Rp. %s" % inv.split(", ")[1] + "\n"))
 
-                    print(file_pembeli.write("-------------------------------------------\n"))
-                    print(file_pembeli.write("Total\t\t\t\t\t\tRp. %s" % str(total) + "\n"))
-                    print(file_pembeli.write("===========================================\n"))
+                #     print(file_pembeli.write("-------------------------------------------\n"))
+                #     print(file_pembeli.write("Total\t\t\t\t\t\tRp. %s" % str(total) + "\n"))
+                #     print(file_pembeli.write("===========================================\n"))
 
                 back()
                 break

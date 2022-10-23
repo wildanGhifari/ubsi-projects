@@ -4,3 +4,4 @@
 112, iPhone 12, Chip A14 Bionic 64GB, Smartphone, 13000000, 20
 488, MacBook Pro 14", M1 Pro 10-Core 1TB, Laptop, 32000000, 5
 266, Apple Watch 7, 45mm Retina, Smartwatch, 8000000, 8
+425, Lenovo IdeaPad, Core i5 Ram 8GB 512Gb, Laptop, 15000000, 50
