@@ -1,0 +1,130 @@
+/* Utility */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Utility */
+
+nav {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0px 27px 145px rgba(51, 51, 51, 0.07), 0px 8.13971px 43.7133px rgba(51, 51, 51, 0.0456112), 0px 3.38082px 18.1562px rgba(51, 51, 51, 0.035), 0px 1.22278px 6.56676px rgba(51, 51, 51, 0.0243888);
+}
+
+#navbrand {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 24px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    list-style-type: none;
+}
+
+.link a {
+    color: #333;
+    display: block;
+    padding: 16px 24px;
+    text-decoration: none;
+}
+
+.link a:hover {
+    color: rgb(20, 20, 20);
+    background-color: rgba(255, 110, 150, 0.1);
+}
+
+/* Main */
+main {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    /* gap: 24px; */
+}
+
+#articles {
+    margin-left: 260px;
+    flex: 100%;
+    width: 100%;
+}
+
+#articles header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    padding: 24px;
+    background-color: #333;
+    margin-bottom: 24px;
+
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+}
+
+.article-container {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+}
+
+article {
+    width: 100%;
+    border-radius: 8px;
+
+    overflow: hidden;
+    box-shadow: 0px 27px 145px rgba(51, 51, 51, 0.07), 0px 8.13971px 43.7133px rgba(51, 51, 51, 0.0456112), 0px 3.38082px 18.1562px rgba(51, 51, 51, 0.035), 0px 1.22278px 6.56676px rgba(51, 51, 51, 0.0243888);
+}
+
+article img {
+    width: 100%;
+}
+
+.article-content {
+    padding: 24px;
+}
+
+.article-content h2 {
+    margin-bottom: 8px;
+}
+
+
+#sidenav {
+    padding: 24px;
+    flex: 40%;
+    width: 40%;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    /* background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px; */
+}
+
+#aside {
+    flex: 40%;
+    width: 40%;
+    background-color: #fff;
+
+    box-shadow: 0px 27px 145px rgba(51, 51, 51, 0.07), 0px 8.13971px 43.7133px rgba(51, 51, 51, 0.0456112), 0px 3.38082px 18.1562px rgba(51, 51, 51, 0.035), 0px 1.22278px 6.56676px rgba(51, 51, 51, 0.0243888);
+}
