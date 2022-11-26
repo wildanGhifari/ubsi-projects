@@ -24,8 +24,6 @@ body {
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
 
     vertical-align: top;
 }
@@ -70,7 +68,6 @@ nav {
 }
 
 .link a {
-    vertical-align: top;
     color: #333;
     display: block;
     padding: 16px 24px;
