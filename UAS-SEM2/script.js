@@ -60,6 +60,7 @@ const createNewsElement = (data) => {
 
     articleContainer.classList.add('article-container')
     articleContent.classList.add('article-content');
+    cta.classList.add('cta-read')
 
     const truncate = (input) => input.length > 128 ? `${input.substring(0, 128)}...` : input;
 	const cropedHighlights = truncate(data.highlights);
