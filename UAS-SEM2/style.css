@@ -26,6 +26,7 @@ body {
     direction: ltr;
 
     vertical-align: top;
+    color: #333;
 }
 
 /* Utility */
@@ -48,6 +49,7 @@ nav {
     font-weight: bold;
     font-size: 24px;
     padding: 24px;
+    color: #333;
 }
 
 .links {
@@ -100,6 +102,9 @@ main {
 }
 
 #articles header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     position: sticky;
     top: 0;
@@ -107,9 +112,41 @@ main {
     background-color: #333;
     margin-bottom: 24px;
 
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8.5px);
     -webkit-backdrop-filter: blur(8.5px);
+}
+
+#articles header form {
+    width: 100%;
+    display: flex;
+}
+
+#articles header button {
+    padding: 8px 8px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+
+    position: fixed;
+    align-self: center;
+    right: 24px;
+}
+
+#articles header button:hover {
+    cursor: pointer;
+}
+
+#articles header input {
+    width: 100%;
+    padding: 8px;
+    font-size: 18px;
+    border: rgb(150, 150, 150) solid 1px;
+    border-radius: 8px;
+}
+
+#articles header input:focus {
+    outline: none !important;
+    background-color: rgba(255, 110, 150, 0.1);
 }
 
 .article-container {
