@@ -47,18 +47,18 @@ const PATH = './imgs/'
 
 const createNewsElement = (data) => {
     const mainContainer = document.querySelector('#articles');
-    const articleContainer = document.createElement('div');
+    const articleContainer = document.querySelector('.article-container');
     const article = document.createElement('article');
     const img = document.createElement('img');
     const articleContent = document.createElement('div');
-    const judul = document.createElement('h2');
+    const judul = document.createElement('h3');
     const highlights = document.createElement('p');
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
     const p3 = document.createElement('p');
     const cta = document.createElement('a');
 
-    articleContainer.classList.add('article-container')
+    // articleContainer.classList.add('article-container')
     articleContent.classList.add('article-content');
     cta.classList.add('cta-read')
 
