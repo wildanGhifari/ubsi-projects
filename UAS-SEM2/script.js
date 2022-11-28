@@ -59,7 +59,7 @@ const createNewsElement = (data) => {
     exploreArticle.href = '#'
     articleContent.classList.add('exp-article-content');
 
-    const truncate = (input) => input.length > 128 ? `${input.substring(0, 128)}...` : input;
+    const truncate = (input) => input.length > 48 ? `${input.substring(0, 48)}...` : input;
 	const cropedHighlights = truncate(data.highlights);
 
     articleImg.src = `${PATH}${data.img}`
