@@ -43,14 +43,46 @@
             </ul>
         </nav>
         <div id="articles">
-            <header>
+            <div class="article-header">
                 <form action="#">
-                    <input type="text" name="search" id="search" placeholder="Search article...">
                     <button type="submit">
                         <span class="material-symbols-rounded">search</span>
                     </button>
+                    <input type="text" name="search" id="search" placeholder="Search article...">
                 </form>
-            </header>
+
+                <div class="notif-and-bookmark">
+                    <div class="icon-only">
+                        <span class="material-symbols-rounded">
+                            notifications
+                        </span>
+                    </div>
+                    <div class="icon-only">
+                        <span class="material-symbols-rounded">
+                            bookmarks
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="featured">
+                <div class="featured-header">
+                    <h2>Featured Article</h2>
+                    <a href="#">View More</a>
+                </div>
+                <div class="featured-articles-container">
+                    <div class="featured-article">
+                        <img src="./imgs/test.jpg" alt="">
+                        <div class="featured-article-content">
+                            <h3>This is a featured article title 1</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut eaque suscipit fuga neque
+                                ducimus!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="aside"></div>
     </main>

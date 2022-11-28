@@ -9,7 +9,7 @@
 }
 
 body {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .material-symbols-rounded {
@@ -26,7 +26,16 @@ body {
     direction: ltr;
 
     vertical-align: top;
-    color: #333;
+}
+
+.icon-only {
+    padding: 8px;
+    border-radius: 100%;
+}
+
+.icon-only:hover {
+    cursor: pointer;
+    background-color: rgba(255, 110, 150, 0.1);
 }
 
 /* Utility */
@@ -101,52 +110,108 @@ main {
     /* background-color: #f2f2f2; */
 }
 
-#articles header {
+#articles .article-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 48px;
     width: 100%;
     position: sticky;
     top: 0;
     padding: 21px 24px;
     background-color: #333;
     margin-bottom: 24px;
+    border-bottom: #dbdbdb solid 1px;
 
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8.5px);
     -webkit-backdrop-filter: blur(8.5px);
 }
 
-#articles header form {
+#articles .article-header form {
     width: 100%;
     display: flex;
+    border: #dbdbdb solid 1px;
+    border-radius: 24px;
+    overflow: hidden;
 }
 
-#articles header button {
+#articles .article-header button {
     padding: 8px 8px;
+    padding-left: 16px;
     border: none;
     background-color: rgba(255, 255, 255, 0);
 
-    position: fixed;
     align-self: center;
-    right: 24px;
 }
 
-#articles header button:hover {
+#articles .article-header button:hover {
     cursor: pointer;
 }
 
-#articles header input {
+#articles .article-header input {
     width: 100%;
-    padding: 8px;
+    padding: 8px 8px;
     font-size: 18px;
-    border: rgb(150, 150, 150) solid 1px;
-    border-radius: 8px;
+    border: none;
+    background-color: transparent;
 }
 
-#articles header input:focus {
+#articles .article-header input:focus {
     outline: none !important;
+}
+
+.notif-and-bookmark {
+    display: flex;
+    gap: 8px;
+}
+
+#featured {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+}
+
+#featured .featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#featured .featured-header a {
+    display: block;
+    padding: 8px 16px;
+    border: #dbdbdb solid 1px;
+    border-radius: 24px;
+    font-size: 16px;
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+}
+
+#featured .featured-header a:hover {
+    color: rgb(20, 20, 20);
     background-color: rgba(255, 110, 150, 0.1);
+}
+
+.featured-articles-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    padding: 16px 0;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    cursor: pointer;
+}
+
+.featured-article {
+    width: 256px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.featured-article img {
+    width: 100%;
 }
 
 .article-container {
@@ -179,8 +244,10 @@ article img {
 
 .cta-read {
     display: block;
-    margin-top: 8px;
+    margin-top: 16px;
     color: rgb(255, 110, 151);
+    font-size: 16px;
+    text-decoration: none;
 }
 
 #aside {
