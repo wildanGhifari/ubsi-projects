@@ -164,6 +164,7 @@ main {
 
 #articles {
     margin-left: 260px;
+    margin-right: 300px;
     flex: 100%;
     width: 100%;
     /* background-color: #f2f2f2; */
@@ -267,8 +268,30 @@ main {
 }
 
 #aside {
-    flex: 50%;
+    /* flex: 50%;
     width: 50%;
+    background-color: #fff; */
+
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
     border-left: #dbdbdb solid 1px;
+}
+
+.aside-header {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+}
+
+.aside-header img {
+    width: 38px;
+    border-radius: 50%;
 }
