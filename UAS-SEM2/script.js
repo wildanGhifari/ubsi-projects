@@ -46,42 +46,34 @@ const articles = [
 const PATH = './imgs/'
 
 const createNewsElement = (data) => {
-    const mainContainer = document.querySelector('#articles');
-    const articleContainer = document.querySelector('.article-container');
-    const article = document.createElement('article');
-    const img = document.createElement('img');
+    const exploreContainer = document.querySelector('.explore');
+    const exploreArticles = document.querySelector('.exp-articles');
+    const exploreArticle = document.createElement('a');
+    const articleImg = document.createElement('img');
     const articleContent = document.createElement('div');
-    const judul = document.createElement('h3');
-    const highlights = document.createElement('p');
-    const p1 = document.createElement('p');
-    const p2 = document.createElement('p');
-    const p3 = document.createElement('p');
-    const cta = document.createElement('a');
+    const articleTitle = document.createElement('h3');
+    const articleHighlights = document.createElement('p');
+    // const articleCTA = document.createElement('a');
 
-    // articleContainer.classList.add('article-container')
-    articleContent.classList.add('article-content');
-    cta.classList.add('cta-read')
+    exploreArticle.classList.add('exp-article');
+    exploreArticle.href = '#'
+    articleContent.classList.add('exp-article-content');
 
     const truncate = (input) => input.length > 128 ? `${input.substring(0, 128)}...` : input;
 	const cropedHighlights = truncate(data.highlights);
-    
-    img.src = `${PATH}${data.img}`;
-    judul.textContent = data.judul
-    highlights.textContent = cropedHighlights
-    p1.textContent = data.p1
-    p2.textContent = data.p2
-    p3.textContent = data.p3
 
-    cta.href = '#';
-    cta.innerText = 'Read more'
+    articleImg.src = `${PATH}${data.img}`
+    articleTitle.textContent = data.judul;
+    articleHighlights.textContent = cropedHighlights;
+    // articleCTA.href = '#'
+    // articleCTA.textContent = 'Read more'
 
-    articleContent.append(judul, highlights, cta);
-    article.append(img, articleContent)
-    articleContainer.append(article);
-    mainContainer.append(articleContainer)
+    articleContent.append(articleTitle, articleHighlights);
+    exploreArticle.append(articleImg, articleContent);
+    exploreArticles.append(exploreArticle);
+    exploreContainer.append(exploreArticles);
 }
 
-// Looping data articles
-for (article of articles){
+articles.forEach(article => {
     createNewsElement(article);
-}
+})
