@@ -42,6 +42,20 @@ body {
     background-color: rgba(255, 110, 150, 0.1);
 }
 
+.btn-outline {
+    display: block;
+    padding: 8px 16px;
+    border: #dbdbdb solid 1px;
+    border-radius: 24px;
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+}
+
+.btn-outline:hover {
+    color: rgb(20, 20, 20);
+    background-color: rgba(255, 110, 150, 0.1);
+}
+
 /* Utility */
 
 nav {
@@ -60,8 +74,9 @@ nav {
 #navbrand {
     font-weight: bold;
     font-size: 24px;
-    padding: 24px;
+    padding: 26px 24px;
     color: #333;
+    border-bottom: #dbdbdb solid 1px;
 }
 
 .links {
@@ -84,7 +99,7 @@ nav {
 .link a {
     color: #333;
     display: block;
-    padding: 16px 24px;
+    padding: 20px 24px;
     text-decoration: none;
 }
 
@@ -117,21 +132,6 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-#featured .featured-header a {
-    display: block;
-    padding: 8px 16px;
-    border: #dbdbdb solid 1px;
-    border-radius: 24px;
-    font-size: 16px;
-    text-decoration: none;
-    color: rgb(20, 20, 20);
-}
-
-#featured .featured-header a:hover {
-    color: rgb(20, 20, 20);
-    background-color: rgba(255, 110, 150, 0.1);
 }
 
 .featured-articles-container {
@@ -270,7 +270,9 @@ main {
 #aside {
     flex: 36%;
     width: 36%;
-    background-color: #fff;
+    height: 100vh;
+    position: sticky;
+    top: 0;
     border-left: #dbdbdb solid 1px;
 }
 
@@ -281,6 +283,7 @@ main {
     display: flex;
     gap: 24px;
     padding: 22px 24px;
+    background-color: #fff;
     border-bottom: #dbdbdb solid 1px;
 }
 
@@ -290,4 +293,42 @@ main {
     border-radius: 50%;
 }
 
-.aside-content {}
+.aside-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.last-reading-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.last-reading {
+    display: flex;
+    gap: 8px;
+    padding: 16px 0;
+    border-bottom: #dbdbdb solid 1px;
+}
+
+.last-reading img {
+    object-fit: cover;
+    width: 64px;
+    height: 64px;
+}
+
+.last-reading-detail h3 {
+    margin-bottom: 8px;
+}
+
+.more-topics-container h2 {
+    margin-bottom: 16px;
+}
+
+.topics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
