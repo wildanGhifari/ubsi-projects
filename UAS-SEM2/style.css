@@ -96,7 +96,6 @@ nav {
 
 /* Main */
 main {
-    max-width: 1400px;
     width: 100%;
     position: absolute;
     display: flex;
@@ -164,7 +163,6 @@ main {
 
 #articles {
     margin-left: 260px;
-    margin-right: 300px;
     flex: 100%;
     width: 100%;
     /* background-color: #f2f2f2; */
@@ -268,20 +266,20 @@ main {
 }
 
 #aside {
-    /* flex: 50%;
-    width: 50%;
-    background-color: #fff; */
-
-    height: 100%;
+    flex: 36%;
+    width: 36%;
+    background-color: #fff;
+    border-left: #dbdbdb solid 1px;
+    /* height: 100%;
     width: 300px;
     position: fixed;
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    border-left: #dbdbdb solid 1px;
+    /* border-left: #dbdbdb solid 1px; */
 }
 
 .aside-header {
