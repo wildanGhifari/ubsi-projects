@@ -322,7 +322,7 @@ main {
 .last-reading img {
     object-fit: cover;
     width: 64px;
-    height: 64px;
+    height: auto;
 }
 
 .last-reading-detail h3 {
@@ -340,6 +340,7 @@ main {
     gap: 10px;
 }
 
+/* ======================================================= */
 @media (width <=1400px) {
     nav {
         width: 88px;
@@ -354,24 +355,17 @@ main {
         margin-left: 88px;
     }
 
-    .upgrade {
-        height: 100%;
-        background-color: rgb(255, 110, 151);
+    #aside {
+        flex: 48%;
+        width: 48%;
     }
 
-    .last-reading-list {
-        display: flex;
-        flex-direction: column;
+    .aside-content {
+        gap: 24px;
     }
 
     .last-reading {
         padding: 12px 0;
-    }
-
-    .last-reading img {
-        object-fit: cover;
-        width: 48px;
-        height: 48px;
     }
 
     .last-reading-detail h3 {
@@ -379,13 +373,10 @@ main {
     }
 
     .more-topics-container h2 {
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }
 
     .topics {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
     }
 }
