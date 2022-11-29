@@ -149,7 +149,7 @@ main {
 
 .featured-article img {
     object-fit: cover;
-    height: 250px;
+    height: 320px;
     flex: 50%;
     width: 50%;
 }
@@ -234,15 +234,13 @@ main {
 }
 
 .exp-articles {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 32px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 32px;
 }
 
 .exp-article {
-    width: 48%;
-    /* border-radius: 8px; */
     overflow: hidden;
     color: #333;
     text-decoration: none;
