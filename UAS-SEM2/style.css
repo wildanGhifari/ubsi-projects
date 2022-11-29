@@ -339,3 +339,53 @@ main {
     flex-wrap: wrap;
     gap: 10px;
 }
+
+@media (width <=1400px) {
+    nav {
+        width: 88px;
+    }
+
+    .nav-link {
+        font-size: 0;
+        text-align: center;
+    }
+
+    #articles {
+        margin-left: 88px;
+    }
+
+    .upgrade {
+        height: 100%;
+        background-color: rgb(255, 110, 151);
+    }
+
+    .last-reading-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .last-reading {
+        padding: 12px 0;
+    }
+
+    .last-reading img {
+        object-fit: cover;
+        width: 48px;
+        height: 48px;
+    }
+
+    .last-reading-detail h3 {
+        margin-bottom: 8px;
+    }
+
+    .more-topics-container h2 {
+        margin-bottom: 16px;
+    }
+
+    .topics {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

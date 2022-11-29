@@ -43,6 +43,9 @@ const articles = [
 ]
 // END of Data Declaration 
 
+const bodyWidth = document.body.clientWidth;
+const navBrand = document.querySelector('#navbrand')
+const navlink = document.querySelector('.nav-link')
 const PATH = './imgs/'
 
 const createNewsElement = (data) => {
@@ -72,6 +75,15 @@ const createNewsElement = (data) => {
     exploreArticle.append(articleImg, articleContent);
     exploreArticles.append(exploreArticle);
     exploreContainer.append(exploreArticles);
+}
+
+// ========================================================================
+
+if (bodyWidth < 1400){
+    navBrand.textContent = '🧠'
+} else {
+    navBrand.textContent = '🧠 GoBlog'
+
 }
 
 articles.forEach(article => {
