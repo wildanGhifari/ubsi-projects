@@ -12,6 +12,10 @@ body {
     font-size: 16px;
 }
 
+.small-text {
+    font-size: 14px;
+}
+
 .material-symbols-rounded {
     font-family: 'Material Symbols Rounded';
     font-weight: normal;
@@ -176,7 +180,7 @@ main {
     width: 100%;
     position: sticky;
     top: 0;
-    padding: 21px 24px;
+    padding: 22px 24px;
     background-color: #333;
     margin-bottom: 24px;
     border-bottom: #dbdbdb solid 1px;
@@ -268,26 +272,22 @@ main {
     width: 36%;
     background-color: #fff;
     border-left: #dbdbdb solid 1px;
-    /* height: 100%;
-    width: 300px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    /* border-left: #dbdbdb solid 1px; */
 }
 
 .aside-header {
+    position: sticky;
+    top: 0;
     width: 100%;
     display: flex;
     gap: 24px;
-    padding: 24px;
+    padding: 22px 24px;
+    border-bottom: #dbdbdb solid 1px;
 }
 
 .aside-header img {
-    width: 38px;
+    width: 37px;
+    height: 37px;
     border-radius: 50%;
 }
+
+.aside-content {}
