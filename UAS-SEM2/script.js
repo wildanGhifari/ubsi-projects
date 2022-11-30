@@ -1,7 +1,7 @@
 // Start of Data Declaration 
 const articles = [
     {
-        "img" : "test.jpg",
+        "img" : "https://picsum.photos/id/24/300",
         "judul" : "This is a title for article 1",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
         "p1" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
@@ -9,7 +9,7 @@ const articles = [
         "p3" : "Impedit reprehenderit, esse ea eos, sed, modi molestias dignissimos reiciendis soluta ab expedita cum dolor? Laboriosam, alias. Vel, voluptas repudiandae voluptatum inventore fugit itaque, minima dolore aspernatur est adipisci commodi! Cum quis officia modi ratione sit iusto quia?"
     },
     {
-        "img" : "test.jpg",
+        "img" : "https://picsum.photos/id/25/300",
         "judul" : "This is a title for article 2",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
         "p1" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
@@ -17,7 +17,7 @@ const articles = [
         "p3" : "Impedit reprehenderit, esse ea eos, sed, modi molestias dignissimos reiciendis soluta ab expedita cum dolor? Laboriosam, alias. Vel, voluptas repudiandae voluptatum inventore fugit itaque, minima dolore aspernatur est adipisci commodi! Cum quis officia modi ratione sit iusto quia?"
     },
     {
-        "img" : "test.jpg",
+        "img" : "https://picsum.photos/id/26/300",
         "judul" : "This is a title for article 3",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
         "p1" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
@@ -25,7 +25,7 @@ const articles = [
         "p3" : "Impedit reprehenderit, esse ea eos, sed, modi molestias dignissimos reiciendis soluta ab expedita cum dolor? Laboriosam, alias. Vel, voluptas repudiandae voluptatum inventore fugit itaque, minima dolore aspernatur est adipisci commodi! Cum quis officia modi ratione sit iusto quia?"
     },
     {
-        "img" : "test.jpg",
+        "img" : "https://picsum.photos/id/46/300",
         "judul" : "This is a title for article 4",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
         "p1" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
@@ -33,7 +33,7 @@ const articles = [
         "p3" : "Impedit reprehenderit, esse ea eos, sed, modi molestias dignissimos reiciendis soluta ab expedita cum dolor? Laboriosam, alias. Vel, voluptas repudiandae voluptatum inventore fugit itaque, minima dolore aspernatur est adipisci commodi! Cum quis officia modi ratione sit iusto quia?"
     },
     {
-        "img" : "test.jpg",
+        "img" : "https://picsum.photos/id/77/300",
         "judul" : "This is a title for article 5",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
         "p1" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
@@ -44,12 +44,12 @@ const articles = [
 
 const lastReadingArticles = [
     {
-        "img" : "test.jpg",
+        "img" : "https://picsum.photos/id/125/300",
         "judul" : "Title for last article 1",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae."
     },
     {
-        "img" : "test.jpg",
+        "img" : "https://picsum.photos/id/378/300",
         "judul" : "Title for last article 2",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae."
     }
@@ -79,7 +79,7 @@ const createRecommendationArticles = data => {
     const truncate = (input) => input.length > 48 ? `${input.substring(0, 48)}...` : input;
 	const cropedHighlights = truncate(data.highlights);
 
-    articleImg.src = `${PATH}${data.img}`
+    articleImg.src = data.img //`${PATH}${data.img}`
     articleTitle.textContent = data.judul;
     articleHighlights.textContent = cropedHighlights;
 
@@ -115,7 +115,7 @@ const createLastReadingArticle = data => {
 	    cropedHighlights = truncate(data.highlights);
     }
 
-    lastReadingArticleImg.src = `${PATH}${data.img}`
+    lastReadingArticleImg.src = data.img //`${PATH}${data.img}`
     lastReadingArticleTitle.textContent = data.judul;
     lastReadingArticleHighlights.textContent = cropedHighlights;
 

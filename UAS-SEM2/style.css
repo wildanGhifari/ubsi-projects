@@ -153,13 +153,13 @@ main {
 
 .featured-article img {
     object-fit: cover;
-    height: 320px;
+    height: 380px;
     flex: 50%;
     width: 50%;
 }
 
 .featured-article-content {
-    padding: 24px;
+    padding: 24px 64px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -259,7 +259,9 @@ main {
 }
 
 .exp-article img {
+    object-fit: cover;
     width: 100%;
+    height: 320px;
 }
 
 .exp-article-content h3 {
