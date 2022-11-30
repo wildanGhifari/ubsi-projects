@@ -316,7 +316,12 @@ main {
 
 .upgrade {
     height: 100%;
-    background-color: rgb(255, 110, 151);
+    border-radius: 16px;
+    background: hsla(303, 79%, 76%, 1);
+    background: linear-gradient(90deg, hsla(303, 79%, 76%, 1) 0%, hsla(360, 86%, 67%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(303, 79%, 76%, 1) 0%, hsla(360, 86%, 67%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(303, 79%, 76%, 1) 0%, hsla(360, 86%, 67%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#F292ED", endColorstr="#F36364", GradientType=1);
 }
 
 .last-reading-list {
