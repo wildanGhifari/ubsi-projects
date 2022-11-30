@@ -369,6 +369,10 @@ main {
         margin-left: 88px;
     }
 
+    .featured-article img {
+        height: 100%;
+    }
+
     #aside {
         flex: 48%;
         width: 48%;
