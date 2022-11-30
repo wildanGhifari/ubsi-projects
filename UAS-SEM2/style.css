@@ -358,6 +358,10 @@ main {
         text-align: center;
     }
 
+    .link a span {
+        margin-right: 0;
+    }
+
     #articles {
         margin-left: 88px;
     }
