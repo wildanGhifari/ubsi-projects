@@ -21,7 +21,7 @@ body {
     font-family: 'Material Symbols Rounded';
     font-weight: normal;
     font-style: normal;
-    font-size: 20px;
+    font-size: 21px;
     letter-spacing: normal;
     text-transform: none;
     display: inline-flex;
@@ -377,6 +377,7 @@ main {
     }
 
     .featured-article-content {
+        width: 100%;
         padding: 24px 24px;
     }
 
