@@ -159,6 +159,8 @@ main {
 }
 
 .featured-article-content {
+    flex: 50%;
+    width: 50%;
     padding: 24px 64px;
     display: flex;
     flex-direction: column;
@@ -369,8 +371,8 @@ main {
         margin-left: 88px;
     }
 
-    .featured-article img {
-        height: 100%;
+    .featured-article-content {
+        padding: 24px 24px;
     }
 
     #aside {
