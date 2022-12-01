@@ -39,6 +39,14 @@ const articles = [
         "p1" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
         "p2" : "Debitis delectus tempore sequi eveniet eum magnam natus deleniti in itaque facilis dolores dolorem atque, ipsa culpa aspernatur impedit ab illo sapiente! Officiis ipsum hic, non debitis repudiandae dolorum in dolorem atque.",
         "p3" : "Impedit reprehenderit, esse ea eos, sed, modi molestias dignissimos reiciendis soluta ab expedita cum dolor? Laboriosam, alias. Vel, voluptas repudiandae voluptatum inventore fugit itaque, minima dolore aspernatur est adipisci commodi! Cum quis officia modi ratione sit iusto quia?"
+    },
+    {
+        "img" : "https://picsum.photos/id/666/300",
+        "judul" : "This is a title for article 6",
+        "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
+        "p1" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae.",
+        "p2" : "Debitis delectus tempore sequi eveniet eum magnam natus deleniti in itaque facilis dolores dolorem atque, ipsa culpa aspernatur impedit ab illo sapiente! Officiis ipsum hic, non debitis repudiandae dolorum in dolorem atque.",
+        "p3" : "Impedit reprehenderit, esse ea eos, sed, modi molestias dignissimos reiciendis soluta ab expedita cum dolor? Laboriosam, alias. Vel, voluptas repudiandae voluptatum inventore fugit itaque, minima dolore aspernatur est adipisci commodi! Cum quis officia modi ratione sit iusto quia?"
     }
 ]
 
@@ -51,6 +59,11 @@ const lastReadingArticles = [
     {
         "img" : "https://picsum.photos/id/378/300",
         "judul" : "Title for last article 2",
+        "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae."
+    },
+    {
+        "img" : "https://picsum.photos/id/400/300",
+        "judul" : "Title for last article 3",
         "highlights" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi saepe provident consectetur esse eum doloribus quis dolores excepturi id? Amet placeat quae in velit distinctio reprehenderit consequatur atque ipsum molestiae."
     }
 ]
