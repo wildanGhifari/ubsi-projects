@@ -159,3 +159,61 @@
 .overlay-text h3 {
     margin-bottom: 8px;
 }
+
+@media (width <=992px) {
+    .overlay-container {
+        position: relative;
+        height: 100%;
+    }
+
+    .overlay {
+        position: absolute;
+        padding: 8px 8px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(51, 51, 51, 0.65);
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        transition: .3s ease;
+    }
+}
+
+@media (width <=768px) {
+    .explore-items {
+        gap: 4px 4px;
+    }
+
+    .Item-1,
+    .Item-2,
+    .Item-3,
+    .Item-4,
+    .Item-7,
+    .Item-8,
+    .Item-9,
+    .Item-10 {
+        height: 165px;
+    }
+
+    .Item-1:hover .overlay,
+    .Item-2:hover .overlay,
+    .Item-3:hover .overlay,
+    .Item-4:hover .overlay,
+    .Item-5:hover .overlay,
+    .Item-6:hover .overlay,
+    .Item-7:hover .overlay,
+    .Item-8:hover .overlay,
+    .Item-9:hover .overlay,
+    .Item-10:hover .overlay {
+        padding: 8px 8px;
+    }
+
+    .overlay-text h4 {
+        margin-bottom: 4px;
+    }
+
+    .overlay-text p {
+        display: none;
+    }
+}
