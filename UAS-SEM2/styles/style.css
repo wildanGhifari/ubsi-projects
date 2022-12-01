@@ -418,6 +418,10 @@ main {
 }
 
 @media (width <=992px) {
+    #articles .article-header {
+        z-index: 99;
+    }
+
     #articles .article-header img {
         display: block;
     }
