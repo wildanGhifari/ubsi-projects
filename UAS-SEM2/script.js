@@ -86,7 +86,7 @@ const createRecommendationArticles = data => {
     const articleHighlights = document.createElement('p');
 
     exploreArticle.classList.add('exp-article');
-    exploreArticle.href = '#'
+    exploreArticle.href = './pages/detail.html'
     articleContent.classList.add('exp-article-content');
 
     const truncate = (input) => input.length > 48 ? `${input.substring(0, 48)}...` : input;
