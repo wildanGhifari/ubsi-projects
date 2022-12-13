@@ -1,0 +1,14 @@
+.trending-container {
+    padding: 24px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.trending-container h2,
+.trending-container h3 {
+    margin-bottom: 16px;
+}
+
+@media (width <=768px) {}
