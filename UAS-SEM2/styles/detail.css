@@ -1,0 +1,32 @@
+.detail-container {
+    padding: 24px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.detail-header {
+    padding-bottom: 24px;
+    border-bottom: #dbdbdb solid 1px;
+}
+
+.detail-header h2 {
+    margin: 16px 0;
+}
+
+.detail-header img {
+    object-fit: cover;
+    width: 100%;
+    height: 560px;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.detail-content h3 {
+    margin-bottom: 8px;
+}
