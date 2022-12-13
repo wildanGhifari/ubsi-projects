@@ -11,4 +11,26 @@
     margin-bottom: 16px;
 }
 
+.trending-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24%, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 24px;
+}
+
+.trend-article {
+    overflow: hidden;
+}
+
+.trend-article img {
+    object-fit: cover;
+    width: 100%;
+    height: 320px;
+}
+
+.trend-article-content h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
 @media (width <=768px) {}
